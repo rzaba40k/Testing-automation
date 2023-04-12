@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class SeleniumZadania {
+public class SeleniumPractice {
     static WebDriver driver;
 
     @BeforeAll

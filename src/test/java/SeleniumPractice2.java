@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class ZadaniaSeleniumcz2 {
+public class SeleniumPractice2 {
     static WebDriver driver;
 
     @BeforeAll
@@ -62,7 +62,7 @@ public class ZadaniaSeleniumcz2 {
         driver.close();
     }
 
-    //zad4 - bmi online
+
     @Test
     void bmiTest(){
         WebDriver driver = new ChromeDriver();
@@ -77,7 +77,7 @@ public class ZadaniaSeleniumcz2 {
         driver.close();
     }
 
-    //zad5 - rejestracja konta
+    // Account registration
     @Test
     void rejestracjaKonta(){
         Faker faker = new Faker();
@@ -104,7 +104,7 @@ public class ZadaniaSeleniumcz2 {
         Assertions.assertEquals("My Account", driver.findElement(By.cssSelector("#center_column > h1")).getText());
     }
 
-    //explicitly wait
+    // explicitly wait
     @Test
     public void explicitWait() {
         driver.get("http://the-internet.herokuapp.com/dynamic_loading/2");

@@ -11,8 +11,10 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.concurrent.TimeUnit;
 
 
-public class Projekt {
+public class Project {
     static WebDriver driver;
+    //String testedpage;
+    //testedpage = "http://automationpractice.com/";
 
     @BeforeAll
     public static void setUp() {
@@ -23,7 +25,8 @@ public class Projekt {
     }
 
     @Test
-    void navigation() { //nawigacja po sklepie
+    void navigation() { // Store navigation
+        WebDriver driver = new ChromeDriver();
         driver.get("http://automationpractice.com/");
         driver.findElement(By.xpath("//*[@id=\"block_top_menu\"]/ul/li[1]")).click();
         driver.findElement(By.cssSelector("#categories_block_left > div > ul > li:nth-child(1) > a")).click();
@@ -37,12 +40,13 @@ public class Projekt {
     }
 
     @Test
-    void addToCart() { //dodanie produktu do koszyka
+    void addToCart() { // Adding product to your cart
+        WebDriver driver = new ChromeDriver();
         driver.get("http://automationpractice.com/");
         driver.findElement(By.xpath("//*[@id=\"home-page-tabs\"]/li[2]/a")).click();
         Actions action = new Actions(driver);
         WebElement dress = driver.findElement(By.xpath("//*[@id=\"blockbestsellers\"]/li[1]/div/div[1]/div/a[1]/img"));
-        action.moveToElement(dress).perform(); // hover myszy nad wybranym przedmiotem
+        action.moveToElement(dress).perform(); // mouse hover over chosen element
         driver.findElement(By.xpath("//*[@id=\"blockbestsellers\"]/li[1]/div/div[2]/div[2]/a[1]/span")).click();
         driver.findElement(By.xpath("//*[@id=\"layer_cart\"]/div[1]/div[2]/div[4]/a/span")).click();
         Assertions.assertEquals(driver.findElement(By.xpath("//*[@id=\"product_7_34_0_0\"]/td[2]/p")).getText(), "Printed Chiffon Dress");
@@ -50,7 +54,8 @@ public class Projekt {
     }
 
     @Test
-    void newsletterNegative() { //rejestracja do Newslettera - błędny adres e-mail
+    void newsletterNegative() { // Newsletter registration using wrong email
+        WebDriver driver = new ChromeDriver();
         driver.get("http://automationpractice.com/");
         driver.findElement(By.id("newsletter-input")).sendKeys("test@test");
         driver.findElement(By.xpath("//*[@id=\"newsletter_block_left\"]/div/form/div/button")).click();
@@ -58,7 +63,8 @@ public class Projekt {
         driver.quit();
     }
     @Test
-    void accountRegistration() {  //rejestracja konta
+    void accountRegistration() {  // Account registration
+        WebDriver driver = new ChromeDriver();
         Faker faker = new Faker();
         String uniqueEmail = faker.name().firstName() + faker.name().lastName() + faker.random().nextInt(10000) + "@gamil.com";
         driver.get("http://automationpractice.com/");
@@ -83,7 +89,7 @@ public class Projekt {
         driver.quit();
     }
     @Test
-    void wrongPassword() { //logowanie przy użyciu błędnego hasła
+    void wrongPassword() { // Login with wrong password
         WebDriver driver = new ChromeDriver();
         driver.get("http://automationpractice.com/");
         driver.findElement(By.xpath("//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a")).click();
@@ -94,7 +100,7 @@ public class Projekt {
         driver.quit();
     }
     @Test
-    void login() { //logowanie przy użyciu prawidłowych danych
+    void login() { // Login using correct credentials
         WebDriver driver = new ChromeDriver();
         driver.get("http://automationpractice.com/");
         driver.findElement(By.xpath("//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a")).click();
@@ -105,25 +111,25 @@ public class Projekt {
         driver.quit();
     }
     @Test
-    void checkout(){ //zakup produktu poprzez dodanie do koszyka i checkout
+    void checkout(){ // Adding product to cart and checkout
         WebDriver driver = new ChromeDriver();
         Actions action = new Actions(driver);
-        driver.get("http://automationpractice.com/");
         WebElement menu = driver.findElement(By.xpath("//*[@id=\"block_top_menu\"]/ul/li[1]/a"));
+        WebElement blouse = driver.findElement(By.xpath("//*[@id=\"center_column\"]/ul/li/div/div[1]/div/a[1]"));
+        WebElement back = driver.findElement(By.xpath("//*[@id=\"layer_cart\"]/div[1]/div[2]/div[4]/span"));
+        WebElement tshirt = driver.findElement(By.xpath("//*[@id=\"center_column\"]/ul/li/div/div[1]/div/a[1]"));
+        driver.get("http://automationpractice.com/");
         action.moveToElement(menu).perform();
         driver.findElement(By.xpath("//*[@id=\"block_top_menu\"]/ul/li[1]/ul/li[1]/ul/li[2]/a")).click();
-        WebElement blouse = driver.findElement(By.xpath("//*[@id=\"center_column\"]/ul/li/div/div[1]/div/a[1]"));
         action.moveToElement(blouse).perform();
         driver.findElement(By.xpath("//*[@id=\"center_column\"]/ul/li/div/div[2]/div[2]/a[2]/span")).click();
         Select blouseSize = new Select(driver.findElement(By.xpath("//*[@id=\"group_1\"]")));
         blouseSize.selectByVisibleText("M");
         driver.findElement(By.xpath("//*[@id=\"add_to_cart\"]/button/span")).click();
-        WebElement back = driver.findElement(By.xpath("//*[@id=\"layer_cart\"]/div[1]/div[2]/div[4]/span"));
         action.moveToElement(back).click();
         driver.findElement(By.xpath("//*[@id=\"block_top_menu\"]/ul/li[3]/a")).click();
-        WebElement tshirt = driver.findElement(By.xpath("//*[@id=\"center_column\"]/ul/li/div/div[1]/div/a[1]"));
         action.moveToElement(tshirt).perform();
-        driver.findElement(By.xpath("//*[@id=\"center_column\"]/ul/li/div/div[2]/div[2]/a[1]")).click(); //przerobic jak wyzej - wejsc do menu tshirta, kliknac add to cart i za pomoca movetoelement przejsc dalej
+        driver.findElement(By.xpath("//*[@id=\"center_column\"]/ul/li/div/div[2]/div[2]/a[1]")).click();
         driver.findElement(By.xpath("//*[@id=\"layer_cart\"]/div[1]/div[2]/div[4]/a")).click();
         driver.findElement(By.xpath("//*[@id=\"center_column\"]/p[2]/a[1]")).click();
         driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys("jga34528@boofx.com");

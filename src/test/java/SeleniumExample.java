@@ -4,23 +4,23 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.By;
 
-public class SeleniumPrzyklad {
+public class SeleniumExample {
     public static void main(String[] args) {
-    //utworz obiekt o nazwie Webdriver wywolujac konstruktor ChromeDriover();
+    // creates object called Webdriver that contains ChromeDriver constructor;
     WebDriver driver = new ChromeDriver();
-    //zmaksymalizuj okno
+    // maximize window
     driver.manage().window().maximize();
-    //przejdz do strony google.pl
+    // navigate to page google.pl
     driver.navigate().to("https://www.google.pl");
-    //kliknij Zgadzam sie
+    // click accept
         driver.findElement(By.id("L2AGLb")).sendKeys(Keys.ENTER);
-    //wyszukaj "lolcatz"
+    // search for "lolcatz"
         driver.findElement(By.name("q")).sendKeys("lolcatz");
-        //zatwierdz
+        // confirm
         driver.findElement(By.name("q")).submit();
-        //sprawdz czy strona ma tytul "lolcatz - Google Search
+        // checks if the title of the page is "lolcatz - Google Search"
         Assertions.assertEquals("lolcatz - Szukaj w Google", driver.getTitle());
-        //zamknij
+        // closes window
         driver.close();
 
 
