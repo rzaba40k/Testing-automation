@@ -7,7 +7,7 @@ import org.apache.pdfbox.text.PDFTextStripper;
 
 
 
-public class PDFTesting {
+public class PDFTesting { // Work in progress
     static WebDriver driver;
 
     @BeforeAll
