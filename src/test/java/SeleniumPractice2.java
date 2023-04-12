@@ -48,7 +48,7 @@ public class SeleniumPractice2 {
         driver.quit();
     }
 
-    //tabele
+    // Tables testing
     @Test
     void tableTest(){
         WebDriver driver = new ChromeDriver();
@@ -79,7 +79,7 @@ public class SeleniumPractice2 {
 
     // Account registration
     @Test
-    void rejestracjaKonta(){
+    void accountRegistration(){
         Faker faker = new Faker();
         String uniqueEmail = faker.name().firstName() + faker.name().lastName() + faker.random().nextInt(10000) + "@gamil.com";
         driver.manage().window().maximize();

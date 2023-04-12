@@ -13,8 +13,6 @@ import java.util.concurrent.TimeUnit;
 
 public class Project {
     static WebDriver driver;
-    //String testedpage;
-    //testedpage = "http://automationpractice.com/";
 
     @BeforeAll
     public static void setUp() {

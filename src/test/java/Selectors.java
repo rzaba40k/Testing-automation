@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Selectory {
+public class Selectors {
     static WebDriver driver;
 
     @BeforeAll
@@ -15,25 +15,25 @@ public class Selectory {
         driver.get("https://stackoverflow.com/");
     }
 
-    //zad1 - menu nawigacyjne
+    // Navigation menu
     @Test
     void findNavigationMenu() {
         driver.findElement(By.xpath("/html/body/header/div/div[1]/a[1]"));
     }
 
-    //zad 1 - searchbar
+    // Searchbar
     @Test
     void findSearchBar() {
         driver.findElement(By.name("q"));
     }
 
-    //zad 1 - login
+    // Login
     @Test
     void findLogInButton() {
         driver.findElement(By.className("login-link"));
     }
 
-    //zad 1 - jointhecommunity
+    // Join the community
     @Test
     void findJoinTheCommunity() {
         driver.findElement(By.linkText("Join the community"));

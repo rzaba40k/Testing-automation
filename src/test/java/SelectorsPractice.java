@@ -1,6 +1,4 @@
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,9 +7,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.List;
 
-public class Selektoryzadania {
+public class SelectorsPractice {
     static WebDriver driver;
-    //zad2
+
     @Test
     void findElements() {
         WebDriver driver = new ChromeDriver();
@@ -22,7 +20,7 @@ public class Selektoryzadania {
         driver.quit();
     }
 
-    //zad3
+
     @Test
     void findImages(){
         WebDriver driver = new ChromeDriver();
@@ -33,7 +31,7 @@ public class Selektoryzadania {
         driver.quit();
     }
 
-    //zad4
+
     @Test
     void findNewsletterBar() {
         WebDriver driver = new ChromeDriver();

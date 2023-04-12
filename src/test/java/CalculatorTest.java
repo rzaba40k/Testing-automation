@@ -9,7 +9,6 @@ public class CalculatorTest {
         Assertions.assertFalse(Calculator.add(4, 6) != 10);
     }
     @Test
-    @Disabled("Wlaczyc do zestawu po zafixowaniu")
     void isSubtractWorking(){
         Assertions.assertEquals(4,Calculator.subtract(8,4));
         Assertions.assertEquals(2, Calculator.subtract(4, 2));
